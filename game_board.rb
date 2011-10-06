@@ -1,6 +1,5 @@
 class GameBoard
-  def print
-    a = Array.new(9) { " " }
+  def draw(a)
     board = <<-EOF 
         |   |    
       #{a[0]} | #{a[1]} | #{a[2]} 
@@ -15,9 +14,8 @@ class GameBoard
         |   |
     EOF
 
+    puts "=================="
     puts board
+    puts "=================="
   end
 end
-
-a = GameBoard.new
-a.print

@@ -31,10 +31,66 @@ describe Game do
     let(:game) { Game.new }
     let(:player) { stub(:piece => "#") }
 
-    it "player wins with a horizontal row" do
+    it "player wins with top horizontal row" do
       game.move(0, player)
       game.move(1, player)
       game.move(2, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with middle horizontal row" do
+      game.move(3, player)
+      game.move(4, player)
+      game.move(5, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with bottom horizontal row" do
+      game.move(6, player)
+      game.move(7, player)
+      game.move(8, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with first vertical row" do
+      game.move(0, player)
+      game.move(3, player)
+      game.move(6, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with second vertical row" do
+      game.move(1, player)
+      game.move(4, player)
+      game.move(7, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with third vertical row" do
+      game.move(2, player)
+      game.move(5, player)
+      game.move(8, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with left diagonal row" do
+      game.move(0, player)
+      game.move(4, player)
+      game.move(8, player)
+
+      game.won?(player).should be_true
+    end
+
+    it "player wins with right diagonal row" do
+      game.move(2, player)
+      game.move(4, player)
+      game.move(6, player)
 
       game.won?(player).should be_true
     end
